@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MintIceAPI.Entities;
 using MintIceAPI.Helpers;
-using MintIceAPI.Models.Recipes;
+using MintIceAPI.Models;
 
 namespace MintIceAPI.Services
 {
@@ -20,7 +20,7 @@ namespace MintIceAPI.Services
             return _context.Recipes;
         }
 
-        public void Create(CreateRequest model)
+        public void Create(RecipeCreateRequest model)
         {
             // map model to new user object
             var recipe = _mapper.Map<Recipe>(model);
@@ -37,7 +37,7 @@ namespace MintIceAPI.Services
         }
 
 
-        public void Update(int id, UpdateRequest model)
+        public void Update(int id, RecipeUpdateRequest model)
         {
             var recipe = getRecipe(id);
 

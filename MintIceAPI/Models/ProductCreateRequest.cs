@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MintIceAPI.Models.Recipes
+namespace MintIceAPI.Models
 {
-    public class CreateRequest
+    public class ProductCreateRequest
     {
         [Required]
-        public string Name { get; set; }
+        public decimal Quantity { get; set; }
 
-        [Required(AllowEmptyStrings = true)]
-        public string Note { get; set; }
+        [Required]
+        public string Name { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; }
@@ -17,6 +17,6 @@ namespace MintIceAPI.Models.Recipes
         public DateTime UpdatedAt { get; set; }
 
         [Required]
-        public bool Favourite { get; set; }
+        public int RecipeId { get; set; }
     }
 }

@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MintIceAPI.Entities;
-using MintIceAPI.Helpers;
-using MintIceAPI.Models.Recipes;
+using MintIceAPI.Models;
 using MintIceAPI.Services;
 
 namespace MintIceAPI.Controllers
@@ -10,7 +8,7 @@ namespace MintIceAPI.Controllers
     [Route("[controller]")]
     public class RecipesController : ControllerBase
     {
-        
+
         private readonly ILogger<RecipesController> _logger;
         private readonly RecipeService _recipeService;
         public RecipesController(RecipeService recipeService, ILogger<RecipesController> logger)
@@ -26,7 +24,7 @@ namespace MintIceAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateRequest model)
+        public IActionResult Create(RecipeCreateRequest model)
         {
             _recipeService.Create(model);
             return Ok(new { message = "Recipe created" });
@@ -47,7 +45,7 @@ namespace MintIceAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateRequest model)
+        public IActionResult Update(int id, RecipeUpdateRequest model)
         {
             _recipeService.Update(id, model);
             return Ok(new { message = "Recipe updated" });

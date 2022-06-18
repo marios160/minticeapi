@@ -1,8 +1,6 @@
-﻿
-
-namespace MintIceAPI.Models.Recipes
+﻿namespace MintIceAPI.Models
 {
-    public class UpdateRequest
+    public class RecipeUpdateRequest
     {
         public string? Name { get; set; }
 

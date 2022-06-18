@@ -22,6 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     // configure DI for application services
     services.AddScoped<RecipeService>();
+    services.AddScoped<ProductService>();
 
 }
 
