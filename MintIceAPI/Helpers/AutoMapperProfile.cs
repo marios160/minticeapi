@@ -10,6 +10,11 @@ namespace MintIceAPI.Helpers
     {
         public AutoMapperProfile()
         {
+            CreateMap<int?, int>().ConvertUsing((src, dest) => src ?? dest);
+            CreateMap<string?, string>().ConvertUsing((src, dest) => src ?? dest);
+            CreateMap<DateTime?, DateTime>().ConvertUsing((src, dest) => src ?? dest);
+            CreateMap<decimal?, decimal>().ConvertUsing((src, dest) => src ?? dest);
+
             CreateMap<RecipeCreateRequest, Recipe>();
             CreateMap<RecipeUpdateRequest, Recipe>()
             .ForAllMembers(x => x.Condition(
@@ -37,8 +42,7 @@ namespace MintIceAPI.Helpers
             CreateMap<IngredientCreateRequest, Ingredient>();
             CreateMap<IngredientUpdateRequest, Ingredient>()
             .ForAllMembers(x => x.Condition(
-                (src, dest, prop) =>
-                {
+                (src, dest, prop) => {
                     // ignore both null & empty string properties
                     if (prop == null) return false;
                     if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;

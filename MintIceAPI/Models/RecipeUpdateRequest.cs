@@ -6,8 +6,8 @@
 
         public string? Note { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
-        public bool Favourite { get; set; }
+        public bool? Favourite { get; set; }
     }
 }
