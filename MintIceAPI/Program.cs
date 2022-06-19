@@ -23,6 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
     // configure DI for application services
     services.AddScoped<RecipeService>();
     services.AddScoped<ProductService>();
+    services.AddScoped<IngredientService>();
 
 }
 
